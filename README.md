@@ -39,15 +39,9 @@ Each state variable (`a`, `b`, `c`, `d`, `e` and `f`) in a `struct robotburst256
 
 ## Benchmarks
 
-Each of the following results log the fastest process execution speed (in milliseconds) among several repetitions of a PRNG speed test (from an AMD A4-9120C) that generates (and hashes) 1 billion pseudorandom `uint64_t` integers in a `#pragma GCC unroll 0` loop.
+Each of the following results log the fastest process execution speed (in milliseconds) among several repetitions of a CSPRNG speed test (using `gcc -O3` from an AMD A4-9120C) that generates (and hashes) 1 billion pseudorandom `uint64_t` integers in a `#pragma GCC unroll 0` loop.
 
 | PRNG | Elapsed |
 | --- | --- |
-| **`robotburst256`** (`gcc -O3`) | **3586ms** |
-| `aes_ni_ctr_128` (`gcc -O3 -maes -msse4`) | 3796ms |
-| `pcg_oneseq_128_xsh_rr_64` (`gcc -O3`) | 6833ms |
-| `mt19937_64` (`gcc -O3`) | 7126ms |
-| `pcg64_dxsm` (`gcc -O3`) | 7604ms |
-| `pcg_oneseq_128_xsh_rs_64` (`gcc -O3`) | 7676ms |
-| `tinymt64` (`gcc -O3`) | 16081ms |
-| `stdlib_rand` (`gcc -O3`) | 46083ms |
+| **`robotburst256`** | **3586ms** |
+| `aes_ni_ctr_128` (`-maes -msse4`) | 3796ms |
